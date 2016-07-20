@@ -21,7 +21,7 @@ function getRoot (req, res) {
 
 var user = [,];
 
-io.on('connection', function (socket) {
+io.sockets.on('connection', function (socket) {
 
   var result = {code:200, message:"net active"};
 
