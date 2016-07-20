@@ -14,7 +14,7 @@ server.listen (app.get ('port'), function () {
   console.log ("Server is running" + server.address ().port)
 });
 
-var user = [[],[]];
+var user = [,];
 
 io.on('connection', function (socket) {
 
@@ -24,8 +24,8 @@ io.on('connection', function (socket) {
 
   socket.on ('connect', function (r_data) {
 
-    user [r_data ['user']] ['socket_id'] = socket.id;
-    user [r_data ['user']] ['pos'] = r_data ['pos'];
+    user [r_data ['user'], 'socket_id'] = socket.id;
+    user [r_data ['user'], 'pos'] = r_data ['pos'];
 
     socket.broadcast.emit ('connect', r_data);
     user.forEach(function (index) {
@@ -36,7 +36,7 @@ io.on('connection', function (socket) {
   });
 
   socket.on('movement', function (r_data) {
-    user [r_data ['user']] ['pos'] = r_data ['pos'];
+    user [r_data ['user'], 'pos'] = r_data ['pos'];
 
     socket.broadcast.emit ('movement', r_data);
   });
