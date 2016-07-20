@@ -8,7 +8,7 @@ app.set ('port', process.env.PORT || 3000);
 app.get ('/', getRoot);
 
 function getRoot (req, res) {
-  res.send ('Hello World' + app.address + app.port);
+  res.send ("Server is running : " + server.address ().address + server.address ().port);
 }
 server.listen (app.get ('port'), function () {
   console.log ("Server is running" + server.address ().port)
