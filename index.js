@@ -14,7 +14,7 @@ server.listen (app.get ('port'), function () {
   console.log ("Server is running")
 });
 
-var user = [] [];
+var user = [[],[]];
 
 io.on('connection', function (socket) {
 
@@ -24,7 +24,7 @@ io.on('connection', function (socket) {
 
     socket.broadcast.emit ('connect', r_data);
     user.forEach(function (index) {
-        var data = {user : user [index] ['socket_id']], position : user [index] ['position']}
+        var data = {user : user [index] ['socket_id'], position : user [index] ['position']}
 
         socket.emit ('connect', data);
     });
