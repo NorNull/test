@@ -1,9 +1,7 @@
 var express = require ('express');
 var app = express ();
-var server = require ('http').createServer (app);
+var server = require ('http').createServer (app).listen (3000);
 var io = require ('socket.io').listen (server);
-
-app.set ('port', process.env.PORT || 3000);
 
 app.get ('/', getRoot);
 
