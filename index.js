@@ -3,7 +3,11 @@ var app = express ();
 var server = require ('http').createServer (app);
 var io = require ('socket.io').listen (server);
 
-app.set ('port', process.env.PORT || 3000);
+app.set ('port', process.env.PORT || 3000, function(){
+   var host = server.address().address;
+   var port = server.address().port;
+   console.log('Listening on http://%s:%s', host, port);
+});
 
 app.get ('/', getRoot);
 
