@@ -18,6 +18,8 @@ var user = [[],[]];
 
 io.on('connection', function (socket) {
 
+  socket.emit ('net_active', {code:200, 'net active'});
+
   socket.on ('connect', function (r_data) {
 
     user [r_data ['user']] ['socket_id'] = socket.id;
@@ -29,8 +31,6 @@ io.on('connection', function (socket) {
 
         socket.emit ('connect', data);
     });
-
-    socket.emit ('connect', data);
   });
 
   socket.on('movement', function (r_data) {
