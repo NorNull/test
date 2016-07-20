@@ -52,5 +52,5 @@ io.sockets.on('connection', function (socket) {
 });
 
 server.listen (app.get ('port'), function () {
-  console.log ("Server is running" + server.address ().port)
+  console.log ("Server is running" + server.address ().port);
 });
