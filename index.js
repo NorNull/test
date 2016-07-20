@@ -29,6 +29,8 @@ io.on('connection', function (socket) {
 
         socket.emit ('connect', data);
     });
+
+    socket.emit ('connect', data);
   });
 
   socket.on('movement', function (r_data) {
