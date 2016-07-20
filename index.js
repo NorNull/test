@@ -9,7 +9,7 @@ io.set('transports', [
   , 'xhr-polling'
   ]);
 
-app.set ('port', process.env.PORT || 3000);
+var port = process.env.PORT || 5000;
 
 app.use (express.static (__dirname + '/'));
 
