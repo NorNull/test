@@ -18,9 +18,9 @@ var user = [[],[]];
 
 io.on('connection', function (socket) {
 
-  var result = {code:200, 'net active'};
+  var result = {code:200, "net active"};
 
-  socket.emit ('net_active', result);
+  socket.emit ("net_active", result);
 
   socket.on ('connect', function (r_data) {
 
