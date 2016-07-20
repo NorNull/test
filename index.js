@@ -11,16 +11,15 @@ function getRoot (req, res) {
   res.send ('Hello World');
 }
 server.listen (app.get ('port'), function () {
-  console.log ("Server is running")
+  console.log ("Server is running" + server.address ().port)
 });
 
 var user = [[],[]];
 
 io.on('connection', function (socket) {
 
-res.send ('Hello World2');
-
   socket.on ('connect', function (r_data) {
+
     user [r_data ['user']] ['socket_id'] = socket.id;
     user [r_data ['user']] ['pos'] = r_data ['pos'];
 
