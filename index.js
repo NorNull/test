@@ -3,20 +3,13 @@ var app = express ();
 var server = require ('http').createServer (app);
 var io = require ('socket.io').listen (server);
 
-app.set ('port', process.env.PORT || 3000, function(){
-   var host = server.address().address;
-   var port = server.address().port;
-   console.log('Listening on http://%s:%s', host, port);
-});
+app.set ('port', process.env.PORT || 3000);
 
 app.get ('/', getRoot);
 
 function getRoot (req, res) {
   res.send ("Server is running : " + server.address ().address + server.address ().port);
 }
-server.listen (app.get ('port'), function () {
-  console.log ("Server is running" + server.address ().port)
-});
 
 var user = [,];
 
@@ -48,4 +41,8 @@ io.on('connection', function (socket) {
   socket.on('logout', function (r_data) {
     socket.broadcast.emit ('logout', r_data);
   });
+});
+
+server.listen (app.get ('port'), function () {
+  console.log ("Server is running" + server.address ().port)
 });
