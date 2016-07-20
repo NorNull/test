@@ -2,11 +2,15 @@ var express = require ('express');
 var app = express ();
 var server = require ('http').createServer (app);
 var path = require('path')
-var io = require ('socket.io').listen (server);
+var io = require('socket.io')({
+    transports: ['websocket'],
+});
 
 app.set ('port', process.env.PORT || 3000);
 
 app.use (express.static (__dirname + '/'));
+
+io.attach(port);
 
 app.get ('/', getRoot);
 
