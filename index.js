@@ -37,7 +37,7 @@ io.sockets.on('connection', function (socket) {
         var data = {user : user [index] ['socket_id'], position : user [index] ['position']}
 
         socket.emit ('connect', data);
-    });
+    }); 
   });
 
   socket.on('movement', function (r_data) {
